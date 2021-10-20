@@ -11,8 +11,12 @@ class Login extends Component{
             password: ''
         }
     }
-    enviar(){
-        console.log(`El email que se coloco es: ${this.state.email} `);
+    registrarse(email,password){
+        alert(email + "-" + password);
+    }
+ 
+    ingresar(email,password){
+        alert(email + "-" + password);
     }
     render(){
         return(
@@ -34,7 +38,7 @@ class Login extends Component{
              />
 
                 
-                <TouchableOpacity style = {styles.boton} onPress = {()=> this.enviar() }>
+                <TouchableOpacity style = {styles.boton} onPress = {()=> this.props.ingresar(this.state.email,this.state.password)}>
                     <Text style ={styles.botonText}>Enviar</Text>
                 </TouchableOpacity>
             </View>

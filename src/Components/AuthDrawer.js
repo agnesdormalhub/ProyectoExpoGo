@@ -43,8 +43,8 @@ export default class AuthDrawer extends Component{
         return(
             <NavigationContainer>
                 <Drawer.Navigator>
-                    <Drawer.Screen name="Register" component={()=> <Register />} />
-                    <Drawer.Screen name="Login" component= {()=> <Login/>} />
+                    <Drawer.Screen name="Register" component={()=> <Register registrarse =  {(email, password) => this.registrarse(email,password)}/>} />
+                    <Drawer.Screen name="Login" component= {()=> <Login ingresar = {(email, password) => this.ingresar(email,password)}/>} />
                 </Drawer.Navigator>
             </NavigationContainer>
         )

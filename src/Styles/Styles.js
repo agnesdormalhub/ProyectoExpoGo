@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     textoIn:{
         color:'#b2ad7f',
         fontSize: 15,
-        
     },
 
     botonText:{

@@ -11,13 +11,18 @@ class Register extends Component{
             password: ''
         }
     }
-    enviar(){
-        console.log(`El email que se coloco es: ${this.state.email} `);
-    }
+
+   registrarse(email,password){
+       alert(email + "-" + password);
+   }
+
+   ingresar(email,password){
+       alert(email + "-" + password);
+   }
     render(){
         return(
             <View style= {styles.container}>
-                <Text style={styles.titulo}> Iniciar Sesión </Text>
+                <Text style={styles.titulo}> Registrate </Text>
                 <Text style={styles.textoIn}> Usuario </Text>
                 <TextInput
                     style ={styles.input}
@@ -30,11 +35,11 @@ class Register extends Component{
                  style ={styles.input}
                  placeholder = 'Introducir contraseña'
                  secureTextEntry={true}
-                 onChangeText = { (text) => this.setState({email: text})} 
+                 onChangeText = { (text) => this.setState({password: text})} 
              />
 
                 
-                <TouchableOpacity style = {styles.boton} onPress = {()=> this.enviar() }>
+                <TouchableOpacity style = {styles.boton} onPress = {()=> this.props.registrarse(this.state.email,this.state.password)}>
                     <Text style ={styles.botonText}>Enviar</Text>
                 </TouchableOpacity>
             </View>
