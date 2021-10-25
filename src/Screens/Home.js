@@ -3,6 +3,7 @@ import {View, Text, ActivityIndicator} from 'react-native';
 import { FlatList } from "react-native-gesture-handler";
 import { db } from "../Firebase/Config";
 import { styles } from "../Styles/Styles";
+import Post from "../Components/Post";
 
 export default class Home extends Component{
     constructor(props){
@@ -38,15 +39,12 @@ export default class Home extends Component{
                         <ActivityIndicator color={"green"} size={'large'} />
                     ) : (
                     <FlatList
-                        data={this.state.props}
-                        keyExtractor={(item)=> item.id.toSring()}
-                        renderItem={(item)=> <Post info={item} />}
+                        data={this.state.posts}
+                        keyExtractor={(item)=> item.id.toString()}
+                        renderItem={({item})=> <Post info={item} />}
                     />
                     )
                 }
-                
-               
-                
             </View>
         )
     }
