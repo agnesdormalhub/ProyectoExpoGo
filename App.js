@@ -1,10 +1,10 @@
 import React from 'react';
 import {View} from 'react-native';
-import AuthDrawer from './src/Components/AuthDrawer';
+import MyDrawer from './src/Components/MyDrawer';
 function App() {
   return (
     
-      <AuthDrawer/>
+      <MyDrawer/>
     
   )
 }

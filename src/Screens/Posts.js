@@ -3,7 +3,7 @@ import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import { db, auth } from "../Firebase/Config";
 import {styles} from '../Styles/Styles'
 
-class Post extends Component{
+class Posts extends Component{
     constructor(props){
         super();
         this.state = {
@@ -38,7 +38,7 @@ class Post extends Component{
                     placeholder = 'Introducir publicacion'
                     onChangeText = { (text) => this.setState({title: text})} 
                 />
-                <Text style={styles.textoIn}> Contraseña </Text>
+                <Text style={styles.textoIn}> Descripción</Text>
                 <TextInput
                  style ={styles.input}
                  placeholder = 'Introducir descripción'
@@ -54,4 +54,4 @@ class Post extends Component{
     }
 }
 
-export default Post;
+export default Posts;

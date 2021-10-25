@@ -34,7 +34,7 @@ class Login extends Component{
                  style ={styles.input}
                  placeholder = 'Introducir contraseña'
                  secureTextEntry={true}
-                 onChangeText = { (text) => this.setState({email: text})} 
+                 onChangeText = { (text) => this.setState({password: text})} 
              />
 
                 

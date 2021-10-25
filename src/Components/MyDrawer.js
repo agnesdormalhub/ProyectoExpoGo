@@ -2,14 +2,16 @@ import React, {Component} from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import Home from '../Screens/Home'
+import Posts from '../Screens/Posts'
 
 import Register from '../Screens/Register'
 import Login from '../Screens/Login'
 import { auth } from '../Firebase/Config'
+import Post from '../Screens/Posts'
 
 const Drawer = createDrawerNavigator();
 
-export default class AuthDrawer extends Component{
+export default class MyDrawer extends Component{
     constructor(props){
         super(props);
         this.state= {
@@ -57,7 +59,9 @@ export default class AuthDrawer extends Component{
                         <Drawer.Screen name= 'Profile'>
                             {()=> <Home/>}
                         </Drawer.Screen>
-
+                        <Drawer.Screen name= 'Create'>
+                            {()=> <Posts/>}
+                        </Drawer.Screen>
                         </React.Fragment>
                         :
                         <React.Fragment>
