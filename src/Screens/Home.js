@@ -45,6 +45,12 @@ export default class Home extends Component{
                     />
                     )
                 }
+                {
+                    this.state.loading == false && this.state.posts.length == 0 ?
+                    <Text> Aun no hay publicaciones </Text> :
+                    null
+
+                }
             </View>
         )
     }
