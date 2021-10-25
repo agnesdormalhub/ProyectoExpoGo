@@ -3,7 +3,7 @@ import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import { db, auth } from "../Firebase/Config";
 import {styles} from '../Styles/Styles'
 
-class Posts extends Component{
+class CreatePosts extends Component{
     constructor(props){
         super();
         this.state = {
@@ -20,12 +20,19 @@ class Posts extends Component{
             createdAt: Date.now()
         })
         .then(response => {
-            console.log(response)
+            this.setState({
+                title: '',
+                description: '',
+
+            });
+            this.props.drawerProps.navigation.navigate('Home')
         })
         .catch(error =>{
             console.log(error)
         })
     }
+
+    
 
     render(){
         return( 
@@ -54,4 +61,4 @@ class Posts extends Component{
     }
 }
 
-export default Posts;
+export default CreatePosts;

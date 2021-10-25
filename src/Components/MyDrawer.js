@@ -2,12 +2,12 @@ import React, {Component} from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import Home from '../Screens/Home'
-import Posts from '../Screens/Posts'
+import CreatePosts from '../Screens/CreatePosts'
 
 import Register from '../Screens/Register'
 import Login from '../Screens/Login'
 import { auth } from '../Firebase/Config'
-import Post from '../Screens/Posts'
+
 
 const Drawer = createDrawerNavigator();
 
@@ -60,7 +60,7 @@ export default class MyDrawer extends Component{
                             {()=> <Home/>}
                         </Drawer.Screen>
                         <Drawer.Screen name= 'Create'>
-                            {()=> <Posts/>}
+                            {(drawerProps)=> <CreatePosts drawerProps={drawerProps} />}
                         </Drawer.Screen>
                         </React.Fragment>
                         :

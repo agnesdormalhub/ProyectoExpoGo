@@ -1,18 +1,52 @@
 import React, {Component} from "react";
-import {View, Text} from 'react-native';
+import {View, Text, ActivityIndicator} from 'react-native';
+import { FlatList } from "react-native-gesture-handler";
+import { db } from "../Firebase/Config";
 import { styles } from "../Styles/Styles";
 
 export default class Home extends Component{
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            posts: [],
+            loading: true
+        }
     }
+
+    componentDidMount(){
+        db.collection("posts").orderBy("createdAt","desc").onSnapshot((docs) => {
+            let posts = []
+            docs.forEach((doc)=>{
+                posts.push({
+                    id: doc.id,
+                    data: doc.data()
+                });
+            })
+            this.setState({
+                posts: posts,
+                loading: false
+            })
+        })
+    }
+
     render(){
         return(
             <View style= {styles.container}>
-                <Text>
-                    Home
-                </Text>
+
+                {
+                    this.state.loading ? (
+                        <ActivityIndicator color={"green"} size={'large'} />
+                    ) : (
+                    <FlatList
+                        data={this.state.props}
+                        keyExtractor={(item)=> item.id.toSring()}
+                        renderItem={(item)=> <Post info={item} />}
+                    />
+                    )
+                }
+                
+               
+                
             </View>
         )
     }
