@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import Home from '../Screens/Home'
 import CreatePosts from '../Screens/CreatePosts'
+import Profile from '../Screens/Profile'
 
 import Register from '../Screens/Register'
 import Login from '../Screens/Login'
@@ -16,7 +17,8 @@ export default class MyDrawer extends Component{
         super(props);
         this.state= {
             isLoggedIn: false,
-            error: ''
+            error: '',
+            user: ''
         }
 
     }
@@ -25,7 +27,7 @@ export default class MyDrawer extends Component{
     registrarse(email,password){
         auth.createUserWithEmailAndPassword(email,password)
         .then(response => {
-            this.setState({isLoggedIn: true})
+            this.setState({isLoggedIn: true, user: response.user.email})
         })
 
     .catch(error => {
@@ -38,7 +40,7 @@ export default class MyDrawer extends Component{
     ingresar (email, password){
         auth.signInWithEmailAndPassword(email,password)  
         .then(response => {
-            this.setState({isLoggedIn: true})
+            this.setState({isLoggedIn: true, user: response.user.email})
         })
 
     .catch(error => {
@@ -46,6 +48,21 @@ export default class MyDrawer extends Component{
         this.setState({isLoggedIn:false, error: 'Error en el loggeo'})
     })
       }
+
+    signOut(){
+        auth.signOut()
+        .then(response => {
+            this.setState({
+                isLoggedIn:false,
+            user: ''
+            });
+        
+        }) 
+        .catch(error =>{
+            console.log(error);
+        })
+    }
+
     render(){
         return(
             <NavigationContainer>
@@ -57,7 +74,7 @@ export default class MyDrawer extends Component{
                                 {() => <Home/>}
                             </Drawer.Screen>
                         <Drawer.Screen name= 'Profile'>
-                            {()=> <Home/>}
+                            {()=> <Profile user = {this.state.user} signOut={()=>this.signOut()}/>}
                         </Drawer.Screen>
                         <Drawer.Screen name= 'Create'>
                             {(drawerProps)=> <CreatePosts drawerProps={drawerProps} />}

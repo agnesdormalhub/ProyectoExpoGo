@@ -26,15 +26,17 @@ class Register extends Component{
                 <Text style={styles.textoIn}> Usuario </Text>
                 <TextInput
                     style ={styles.input}
+                    placeholder = 'Introducir nombre de usuario'
+                    onChangeText = { (text) => this.setState({userName: text})} 
+                />
+                <Text style={styles.textoIn}> Mail </Text>
+                <TextInput
+                    style ={styles.input}
                     placeholder = 'Introducir email'
                     keyboardType = 'email-address'
                     onChangeText = { (text) => this.setState({email: text})} 
                 />
-                <TextInput
-                    style ={styles.input}
-                    placeholder = 'Introducir nombre de usuario'
-                    onChangeText = { (text) => this.setState({userName: text})} 
-                />
+                
                 <Text style={styles.textoIn}> Contraseña </Text>
                 <TextInput
                  style ={styles.input}
