@@ -5,7 +5,7 @@ import { styles} from "../Styles/Styles";
 export default function Post(props){
  
     return(
-        <View style ={styles.container}>
+        <View style ={styles.publi}>
             <Text> {props.info.data.username} </Text>
             <Text> {props.info.data.title} </Text>
             <Text> {props.info.data.description} </Text>

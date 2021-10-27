@@ -36,9 +36,10 @@ export default class Home extends Component{
 
                 {
                     this.state.loading ? (
-                        <ActivityIndicator color={"green"} size={'large'} />
+                        <ActivityIndicator color={"gray"} size={"small"} />
                     ) : (
                     <FlatList
+                        style ={styles.input}
                         data={this.state.posts}
                         keyExtractor={(item)=> item.id.toString()}
                         renderItem={({item})=> <Post info={item} />}

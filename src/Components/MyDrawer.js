@@ -22,12 +22,29 @@ export default class MyDrawer extends Component{
         }
 
     }
+    componentDidMount(){
+        auth.onAuthStateChanged((user)=>{
+            if(user){
+                this.setState({
+                    isLoggedIn: true,
+                    user: user.email
+                })
+            }else{
+                this.setState({
+                    isLoggedIn: false,
+                })
+            }
+        })
+    }
 
 
-    registrarse(email,password){
+    registrarse(email,password,userName){
         auth.createUserWithEmailAndPassword(email,password)
-        .then(response => {
-            this.setState({isLoggedIn: true, user: response.user.email})
+        .then(user => {
+            user.user.updateProfile({
+                displayName: userName
+            })
+            this.setState({isLoggedIn: true, user: user.user.email})
         })
 
     .catch(error => {

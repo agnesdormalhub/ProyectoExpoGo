@@ -44,6 +44,10 @@ const styles = StyleSheet.create({
         color:'#7f8662',
         fontWeight: 'bold',
 
+    },
+    publi:{
+        backgroundColor: 'white',
+        marginBottom: 5
     }
 })
 
