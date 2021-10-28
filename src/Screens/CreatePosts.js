@@ -8,7 +8,7 @@ class CreatePosts extends Component{
         super();
         this.state = {
             title : '',
-            description: ""
+            description: "",
         }
     }
 
@@ -17,7 +17,8 @@ class CreatePosts extends Component{
             username: auth.currentUser.displayName,
             title: this.state.title,
             description: this.state.description,
-            createdAt: Date.now()
+            createdAt: Date.now(),
+            likes:[]
         })
         .then(response => {
             this.setState({

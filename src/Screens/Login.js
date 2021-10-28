@@ -8,7 +8,7 @@ class Login extends Component{
         this.state = {
             email : '',
             userName: '',
-            password: ''
+            password: '',
         }
     }
     registrarse(email,password){
