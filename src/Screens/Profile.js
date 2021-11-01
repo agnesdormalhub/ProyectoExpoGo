@@ -42,6 +42,9 @@ render(){
             <Text style={styles.textoIn}>{auth.currentUser.displayName}</Text>
             <Text style={styles.perfil}>Last Sign In:</Text>
             <Text style={styles.textoIn}>{auth.currentUser.metadata.lastSignInTime}</Text>
+            <Text style={styles.perfil}>Cantidad de posteos realizados:</Text>
+            <Text style={styles.textoIn}>{this.state.myPosts.length}</Text>
+
             <Text style={styles.perfil}>Mis posteos:</Text>
             <Text style={styles.textoIn}>
             <FlatList

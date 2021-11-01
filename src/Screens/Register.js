@@ -12,13 +12,13 @@ class Register extends Component{
         }
     }
 
-   registrarse(email,password){
-       alert(email + "-" + password);
+
+
+   registrarse(){
+    this.props.registrarse(this.state.email,this.state.password, this.state.userName)
    }
 
-   ingresar(email,password){
-       alert(email + "-" + password);
-   }
+  
     render(){
         return(
             <View style= {styles.container}>
@@ -46,9 +46,17 @@ class Register extends Component{
              />
 
                 
-                <TouchableOpacity style = {styles.boton} onPress = {()=> this.props.registrarse(this.state.email,this.state.password, this.state.userName)}>
+                <TouchableOpacity style = {styles.boton} onPress = {()=> this.registrarse()}>
                     <Text style ={styles.botonText}>Enviar</Text>
                 </TouchableOpacity>
+
+                
+                {
+                    this.props.error ? (
+                        <Text> Error: {this.props.error}</Text>
+                    ) : null
+                    
+                }
             </View>
         )
     }

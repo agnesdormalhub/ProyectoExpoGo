@@ -62,7 +62,8 @@ componentDidMount(){
      return(
 
         <View style ={styles.publi}>
-            <Text> {this.props.info.data.username} </Text>
+            <Text style = {styles.perfil}> Username: </Text>
+            <Text style = {styles.textoIn}> {this.props.info.data.username} </Text>
             <Text> {this.props.info.data.title} </Text>
             <Text> {this.props.info.data.description} </Text>
             { this.state.liked == true?

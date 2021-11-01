@@ -49,7 +49,7 @@ export default class MyDrawer extends Component{
 
     .catch(error => {
         console.log(error);
-        this.setState({isLoggedIn:false, error: 'Error en el registro'})
+        this.setState({isLoggedIn:false, error: error.message})
     })
     }
 
@@ -103,7 +103,7 @@ export default class MyDrawer extends Component{
                                 {()=> <Login ingresar = {(email, password) => this.ingresar(email,password)}/>} 
                             </Drawer.Screen>
                             <Drawer.Screen name="Register">
-                                 {()=> <Register registrarse =  {(email, password, userName) => this.registrarse(email,password,userName)}/>} 
+                                 {()=> <Register error = {this.state.error} registrarse =  {(email, password, userName) => this.registrarse(email,password,userName) }/>} 
                             </Drawer.Screen>
                         </React.Fragment>
                     }
