@@ -48,6 +48,11 @@ const styles = StyleSheet.create({
     publi:{
         backgroundColor: 'white',
         marginBottom: 5
+    },
+    perfil:{
+        color:'#7f8662',
+        fontSize: 15,
+
     }
 })
 

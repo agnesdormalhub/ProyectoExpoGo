@@ -103,7 +103,7 @@ export default class MyDrawer extends Component{
                                 {()=> <Login ingresar = {(email, password) => this.ingresar(email,password)}/>} 
                             </Drawer.Screen>
                             <Drawer.Screen name="Register">
-                                 {()=> <Register registrarse =  {(email, password) => this.registrarse(email,password)}/>} 
+                                 {()=> <Register registrarse =  {(email, password, userName) => this.registrarse(email,password,userName)}/>} 
                             </Drawer.Screen>
                         </React.Fragment>
                     }

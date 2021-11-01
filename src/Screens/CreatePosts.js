@@ -16,6 +16,7 @@ class CreatePosts extends Component{
         db.collection('posts').add({
             username: auth.currentUser.displayName,
             title: this.state.title,
+            owner: auth.currentUser.email,
             description: this.state.description,
             createdAt: Date.now(),
             likes:[],
