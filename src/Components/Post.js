@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity} from 'react-native'
+import {View, Text, TouchableOpacity, TextInput} from 'react-native'
 import { styles} from "../Styles/Styles";
 import firebase from "firebase";
 import { db, auth } from "../Firebase/Config";
@@ -10,8 +10,17 @@ class Post extends Component{
         this.state = {
             likes: 0,
             liked: false,
+            comentario: ""
         }
     }
+
+comentar(){
+    let comentarios= db.collection("posts").doc(this.props.info.id);
+    comentarios.update({ 
+        comentarios: firebase.firestore.FieldValue.arrayUnion({owner:auth.currentUser.displayName,comment: this.state.comentario })
+    })
+}
+
 
 darLike(){
     let usuariosLikeados= db.collection("posts").doc(this.props.info.id);
@@ -41,7 +50,7 @@ unLike(){
 }
 componentDidMount(){
     if(this.props.info.data.likes.includes(auth.currentUser.email)){
-
+        this.setState({liked: true})
     }
 }
     render(){
@@ -56,13 +65,21 @@ componentDidMount(){
           <TouchableOpacity style = {styles.boton} onPress = {()=> this.unLike() }>
           <Text style ={styles.botonText}>Unlike</Text>
       </TouchableOpacity>
-      :
+      : 
+  
       <TouchableOpacity style = {styles.boton} onPress = {()=> this.darLike() }>
       <Text style ={styles.botonText}>Like</Text>
   </TouchableOpacity>
-
-
-            }
+    }
+    <Text style={styles.textoIn}> Comentarios: </Text>
+    <TextInput
+    placeholder = 'Introducir Comentarios'
+    keyboardType= 'multiline'
+    onChangeText = { (text) => this.setState({comentario: text})} 
+    />
+<TouchableOpacity style = {styles.boton} onPress = {()=> this.comentar() }>
+      <Text style ={styles.botonText}>Comentar</Text>
+  </TouchableOpacity>
         </View>
     )
     }

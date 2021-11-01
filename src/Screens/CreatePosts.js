@@ -18,7 +18,8 @@ class CreatePosts extends Component{
             title: this.state.title,
             description: this.state.description,
             createdAt: Date.now(),
-            likes:[]
+            likes:[],
+            comentarios: []
         })
         .then(response => {
             this.setState({
