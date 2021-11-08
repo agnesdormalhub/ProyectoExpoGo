@@ -17,7 +17,7 @@ class Post extends Component{
 comentar(){
     let comentarios= db.collection("posts").doc(this.props.info.id);
     comentarios.update({ 
-        comentarios: firebase.firestore.FieldValue.arrayUnion({owner:auth.currentUser.displayName, email:auth.currentUser.displayName, comment: this.state.comentario })
+        comentarios: firebase.firestore.FieldValue.arrayUnion({owner:auth.currentUser.displayName, email:auth.currentUser.displayName, comment: this.state.comentario, createdAt: Date.now(), id:Date.now() })
     })
 }
 

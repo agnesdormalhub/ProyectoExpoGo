@@ -2,8 +2,12 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        height: 250,
-        marginTop: 20
+        
+        marginTop: 20,
+        width: "100%",
+        alignItems: 'center',
+        flex: 1,
+
     },
     titulo:{
         fontFamily: 'arial',
@@ -11,6 +15,12 @@ const styles = StyleSheet.create({
         color: '#f6c9ae',
         fontSize: '2rem'
     },
+
+    flat:{
+        width:"100%",
+        
+    },
+
     input: {
         height: 20,
         paddingVertical: 15,
@@ -29,7 +39,8 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 1,
         borderStyle: 'solid',
-        borderColor: '#808080'
+        borderColor: '#808080',
+        marginTop: 2
     },
     enviar:{
         color: 'white'

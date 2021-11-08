@@ -69,13 +69,13 @@ render(){
                 <React.Fragment>
                 <Image source = {{uri: this.state.photo}} style= {styles.img} />
                 <View style={styles.btnContainer}>
-                    <TouchableOpacity onPress={()=> this.onReject()}>
+                    <TouchableOpacity  style={styles.boton} onPress={()=> this.onReject()}>
                     
-                    <Text>Rechazar</Text>
+                    <Text style={styles.botonText}> Rechazar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=> this.onAcccept()}>
+                    <TouchableOpacity  style={styles.boton} onPress={()=> this.onAcccept()}>
                     
-                    <Text>Aceptar</Text>
+                    <Text style={styles.botonText}>Aceptar</Text>
                     </TouchableOpacity>
                 </View>
                 </React.Fragment>
@@ -87,8 +87,8 @@ render(){
                 type= {Camera.Constants.Type.front}
                 ref= {reference => this.camera = reference}
             />
-            <TouchableOpacity onPress={()=> this.takePhoto()}>
-                <Text>SACAR FOTO</Text>
+            <TouchableOpacity style={styles.boton} onPress={()=> this.takePhoto()}>
+                <Text style={styles.botonText}>Sacar foto</Text>
             </TouchableOpacity>
        </React.Fragment>
     

@@ -46,15 +46,13 @@ render(){
             <Text style={styles.textoIn}>{this.state.myPosts.length}</Text>
 
             <Text style={styles.perfil}>Mis posteos:</Text>
-            <Text style={styles.textoIn}>
-            <FlatList
+          
+            <FlatList  style ={styles.flat}
                       
                         data={this.state.myPosts}
                         keyExtractor={(item)=> item.id.toString()}
                         renderItem={({item})=> <Post info={item} />}
                     />
-            </Text>
-            
 
             
             <TouchableOpacity
@@ -63,6 +61,7 @@ render(){
                 >
                     <Text style ={styles.botonText}> Cerrar Sesion.</Text>
             </TouchableOpacity>
+            
         </View>
     )
 }

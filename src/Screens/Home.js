@@ -33,13 +33,14 @@ export default class Home extends Component{
     render(){
         return(
             <View style= {styles.container}>
+                  <Text style={styles.titulo}>Home</Text>
 
                 {
                     this.state.loading ? (
                         <ActivityIndicator color={"gray"} size={"small"} />
                     ) : (
                     <FlatList
-                        style ={styles.input}
+                        style ={styles.flat}
                         data={this.state.posts}
                         keyExtractor={(item)=> item.id.toString()}
                         renderItem={({item})=> <Post info={item} />}
