@@ -9,9 +9,23 @@ export default class MyCamera extends Component{
 constructor(props){
     super(props);
     this.state={
-        photo: ""
+        photo: "",
+        permission: false
     }
     this.camera;
+}
+componentDidMount(){
+    Camera.requestCameraPermissionsAsync()
+    .then(()=>{
+        this.setState({
+            permission:true
+        })
+    })
+    .catch(()=>{
+        this.setState({
+            permission:false
+        })
+    })
 }
 
 takePhoto(){
@@ -45,6 +59,7 @@ onAcccept(){
 }
 
 render(){
+    if(this.state.permission === false) return <Text>No hay Permisos</Text>
     return(
         <React.Fragment>
             {

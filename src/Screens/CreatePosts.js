@@ -22,7 +22,8 @@ class CreatePosts extends Component{
             description: this.state.description,
             createdAt: Date.now(),
             likes:[],
-            comentarios: []
+            comentarios: [],
+            photo: " "
         })
         .then(response => {
             this.setState({
@@ -37,7 +38,9 @@ class CreatePosts extends Component{
         })
     }
 
-    
+
+
+
 
     render(){
         return( 
