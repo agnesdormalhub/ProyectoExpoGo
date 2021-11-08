@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import { db, auth } from "../Firebase/Config";
 import {styles} from '../Styles/Styles'
+import MyCamera from "../Components/MyCamera";
 
 class CreatePosts extends Component{
     constructor(props){
@@ -9,6 +10,7 @@ class CreatePosts extends Component{
         this.state = {
             title : '',
             description: "",
+            showCamera:true 
         }
     }
 
@@ -39,8 +41,12 @@ class CreatePosts extends Component{
 
     render(){
         return( 
-
-            <View style= {styles.container}>
+            <React.Fragment>
+        {
+             this.state.showCamera ? 
+                <MyCamera/>
+                :
+                <View style= {styles.container}>
                 <Text style={styles.titulo}> Publicacion </Text>
                 <Text style={styles.textoIn}> Postear </Text>
                 <TextInput
@@ -60,6 +66,8 @@ class CreatePosts extends Component{
                     <Text style ={styles.botonText}>Crear</Text>
                 </TouchableOpacity>
             </View>
+        }
+            </React.Fragment>
         )
     }
 }

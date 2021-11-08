@@ -23,3 +23,6 @@ regions: firebase.firestore.FieldValue.arrayRemove("region_c")  (para removerlo)
     console.error("Error updating document: " , error);
 });
 
+
+
+
