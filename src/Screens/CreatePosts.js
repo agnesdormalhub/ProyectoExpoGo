@@ -10,7 +10,8 @@ class CreatePosts extends Component{
         this.state = {
             title : '',
             description: "",
-            showCamera:true 
+            showCamera:true,
+            photo: ""
         }
     }
 
@@ -23,7 +24,7 @@ class CreatePosts extends Component{
             createdAt: Date.now(),
             likes:[],
             comentarios: [],
-            photo: " "
+            photo: this.state.photo
         })
         .then(response => {
             this.setState({
@@ -38,7 +39,12 @@ class CreatePosts extends Component{
         })
     }
 
-
+onPhotoUpload(url){
+    this.setState({
+        photo: url,
+        showCamera: false
+    })
+}
 
 
 
@@ -47,7 +53,7 @@ class CreatePosts extends Component{
             <React.Fragment>
         {
              this.state.showCamera ? 
-                <MyCamera/>
+                <MyCamera onPhotoUpload={(url)=> this.onPhotoUpload(url)}/>
                 :
                 <View style= {styles.container}>
                 <Text style={styles.titulo}> Publicacion </Text>

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity, TextInput} from 'react-native'
+import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native'
 import { styles} from "../Styles/Styles";
 import firebase from "firebase";
 import { db, auth } from "../Firebase/Config";
@@ -66,6 +66,7 @@ componentDidMount(){
             <Text style = {styles.textoIn}> {this.props.info.data.username} </Text>
             <Text> {this.props.info.data.title} </Text>
             <Text> {this.props.info.data.description} </Text>
+            <Image source = {{uri: this.props.info.data.photo}} style= {styles.img} />
             { this.state.liked == true?
           <TouchableOpacity style = {styles.boton} onPress = {()=> this.unLike() }>
           <Text style ={styles.botonText}>Unlike</Text>

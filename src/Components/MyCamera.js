@@ -10,7 +10,8 @@ constructor(props){
     super(props);
     this.state={
         photo: "",
-        permission: false
+        permission: false,
+
     }
     this.camera;
 }
@@ -52,7 +53,7 @@ onAcccept(){
         .then(()=> {
             storageRef.getDownloadURL()
             .then((url)=> {
-                console.log(url)
+                this.props.onPhotoUpload(url)
             })
         })
     })
@@ -60,19 +61,20 @@ onAcccept(){
 
 render(){
     if(this.state.permission === false) return <Text>No hay Permisos</Text>
+
     return(
         <React.Fragment>
             {
                 this.state.photo ?
                 <React.Fragment>
-                <Image source = {{uri: this.state.photo}} style= {styles.preview} />
+                <Image source = {{uri: this.state.photo}} style= {styles.img} />
                 <View style={styles.btnContainer}>
-                    <TouchableOpacity>
-                    onPress={()=> this.onReject()}
+                    <TouchableOpacity onPress={()=> this.onReject()}>
+                    
                     <Text>Rechazar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                    onPress={()=> this.onAcccept()}
+                    <TouchableOpacity onPress={()=> this.onAcccept()}>
+                    
                     <Text>Aceptar</Text>
                     </TouchableOpacity>
                 </View>
@@ -85,7 +87,7 @@ render(){
                 type= {Camera.Constants.Type.front}
                 ref= {reference => this.camera = reference}
             />
-            <TouchableOpacity onPress={()=> this.state.takePhoto()}>
+            <TouchableOpacity onPress={()=> this.takePhoto()}>
                 <Text>SACAR FOTO</Text>
             </TouchableOpacity>
        </React.Fragment>
@@ -94,19 +96,6 @@ render(){
              </React.Fragment>
     )
 }
-
-const styles = StyleSheet.create({
-    camera:{
-        flex: 1,
-        width: "100%"
-    },
-    preview:{
-        flex: 6,
-        width: "100%"
-    },
-    btnContainer:{
-        flex: 1
-    }
-})
-
 }
+
+

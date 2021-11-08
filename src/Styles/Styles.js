@@ -53,6 +53,21 @@ const styles = StyleSheet.create({
         color:'#7f8662',
         fontSize: 15,
 
+    },
+    camera:{
+        flex: 1,
+        width: "100%"
+    },
+    preview:{
+        flex: 6,
+        width: "100%"
+    },
+    btnContainer:{
+        flex: 1
+    },
+    img:{
+        width:200,
+        height:200,
     }
 })
 
