@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native'
+import React, {Component, Fragment} from "react";
+import {View, FlatList, Text, TouchableOpacity, TextInput, Image} from 'react-native'
 import { styles} from "../Styles/Styles";
 import firebase from "firebase";
 import { db, auth } from "../Firebase/Config";
@@ -10,7 +10,8 @@ class Post extends Component{
         this.state = {
             likes: 0,
             liked: false,
-            comentario: ""
+            comentario: "",
+            mostrarComentarios: true,
         }
     }
 
@@ -58,7 +59,8 @@ componentDidMount(){
     }
 }
     render(){
-        console.log(this.props)
+        console.log(this.props.info.data)
+        
      return(
 
         <View style ={styles.publi}>
@@ -77,17 +79,33 @@ componentDidMount(){
       <Text style ={styles.botonText}>Like</Text>
   </TouchableOpacity>
     }
-    <Text style={styles.textoIn}> Comentarios: </Text>
-    <TextInput
-    placeholder = 'Introducir Comentarios'
-    keyboardType= 'multiline'
-    onChangeText = { (text) => this.setState({comentario: text})} 
-    />
-<TouchableOpacity style = {styles.boton} onPress = {()=> this.comentar() }>
-      <Text style ={styles.botonText}>Comentar</Text>
+       
+    { this.state.mostrarComentarios ?
+    <React.Fragment>
+
+        <Text style={styles.textoIn}> Comentarios: </Text>
+        <FlatList 
+                      
+                        data={this.props.info.data.comentarios}
+                        keyExtractor={(item)=> item.id.toString()}
+                        renderItem={({item})=> <Text>{item.owner} {item.comment}</Text>}
+                    />
+        <TextInput
+        placeholder = 'Introducir Comentarios'
+        keyboardType= 'multiline'
+        onChangeText = { (text) => this.setState({comentario: text})} 
+        />
+    <TouchableOpacity style = {styles.boton} onPress = {()=> this.comentar() }>
+          <Text style ={styles.botonText}>Comentar</Text>
+      </TouchableOpacity>
+      </React.Fragment>
+      :
+<TouchableOpacity  onPress = {()=> this.setState({mostrarComentario: true})}>
+      <Text>Ver Comentarios</Text>
   </TouchableOpacity>
-        </View>
-    )
     }
+   
+     </View>
+     )}
 }
 export default Post;
