@@ -8,14 +8,19 @@ class Register extends Component{
         this.state = {
             email : '',
             userName: '',
-            password: ''
+            password: '', 
+            error: '',
         }
     }
 
-
-
    registrarse(){
+   if(this.state.email == '' || this.state.userName == ''|| this.state.password == ''){
+        alert("Falta completar un campo")
+   }
+   else{
     this.props.registrarse(this.state.email,this.state.password, this.state.userName)
+   }
+   
    }
 
   

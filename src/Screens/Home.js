@@ -30,6 +30,16 @@ export default class Home extends Component{
         })
     }
 
+    borrar(createdAt){
+        db.collection('posts').where('createdAt', '==', createdAt ).get()
+        .then(data => {
+            data.forEach(doc => doc.ref.delete())
+            const postsFiltered = this.state.myPosts.filter(post => post.data.createdAt != createdAt)
+            console.log(this.state.myPosts)
+            this.setState({myPosts: postsFiltered});
+        })
+    }
+
     render(){
         return(
             <View style= {styles.container}>
@@ -43,7 +53,7 @@ export default class Home extends Component{
                         style ={styles.flat}
                         data={this.state.posts}
                         keyExtractor={(item)=> item.id.toString()}
-                        renderItem={({item})=> <Post info={item} />}
+                        renderItem={({item})=> <Post info={item} borrar={(createdAt)=> this.borrar(createdAt)}/>}
                     />
                     )
                 }

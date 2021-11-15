@@ -24,17 +24,7 @@ comentar(){
 }
 
 borrar(){
-    let posteoAEliminar= db.collection("posts").doc(this.props.info.id);
-    posteoAEliminar.update({ 
-        eliminar: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
-    })
-    .then(()=> {
-        this.setState({
-            eliminar:false });
-    })
-    .catch((error)=>{
-        console.error("Error updating document: " , error);
-    });
+ this.props.borrar(this.props.info.data.createdAt)
 }
 
 
@@ -116,6 +106,13 @@ componentDidMount(){
 <TouchableOpacity  onPress = {()=> this.setState({mostrarComentario: true})}>
       <Text>Ver Comentarios</Text>
   </TouchableOpacity>
+    }
+    { auth.currentUser.displayName == this.props.info.data.username ?
+      <TouchableOpacity style = {styles.boton} onPress = {()=> this.borrar() }>
+      <Text style ={styles.botonText}>Borrar Publicación</Text>
+  </TouchableOpacity>
+    :
+    null
     }
    
      </View>
