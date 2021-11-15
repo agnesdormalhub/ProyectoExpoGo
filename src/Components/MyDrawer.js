@@ -8,6 +8,7 @@ import Profile from '../Screens/Profile'
 import Register from '../Screens/Register'
 import Login from '../Screens/Login'
 import { auth } from '../Firebase/Config'
+import Search from '../Screens/Search'
 
 
 const Drawer = createDrawerNavigator();
@@ -83,12 +84,16 @@ export default class MyDrawer extends Component{
     render(){
         return(
             <NavigationContainer>
+                
                 <Drawer.Navigator>
                     {
                         this.state.isLoggedIn ?
                         <React.Fragment>
                             <Drawer.Screen name="Home">
                                 {() => <Home/>}
+                            </Drawer.Screen>
+                            <Drawer.Screen name="Search">
+                                {() => <Search/>}
                             </Drawer.Screen>
                         <Drawer.Screen name= 'Profile'>
                             {()=> <Profile user = {this.state.user} signOut={()=>this.signOut()}/>}

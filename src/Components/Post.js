@@ -12,6 +12,7 @@ class Post extends Component{
             liked: false,
             comentario: "",
             mostrarComentarios: true,
+
         }
     }
 
@@ -23,7 +24,17 @@ comentar(){
 }
 
 borrar(){
-
+    let posteoAEliminar= db.collection("posts").doc(this.props.info.id);
+    posteoAEliminar.update({ 
+        eliminar: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
+    })
+    .then(()=> {
+        this.setState({
+            eliminar:false });
+    })
+    .catch((error)=>{
+        console.error("Error updating document: " , error);
+    });
 }
 
 
@@ -66,7 +77,9 @@ componentDidMount(){
         <View style ={styles.publi}>
             <Text style = {styles.perfil}> Username: </Text>
             <Text style = {styles.textoIn}> {this.props.info.data.username} </Text>
+            <Text style = {styles.perfil}> Título: </Text>
             <Text> {this.props.info.data.title} </Text>
+            <Text style = {styles.perfil}> Descripción: </Text>
             <Text> {this.props.info.data.description} </Text>
             <Image source = {{uri: this.props.info.data.photo}} style= {styles.img} />
             { this.state.liked == true?

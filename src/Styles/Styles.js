@@ -58,7 +58,13 @@ const styles = StyleSheet.create({
     },
     publi:{
         backgroundColor: 'white',
-        marginBottom: 5
+        marginBottom: 5,
+        borderWidth: 3,
+        borderStyle: 'solid',
+        borderColor: 'gray',
+        padding: 5,
+        marginTop: 5,
+        borderRadius: 10
     },
     perfil:{
         color:'#7f8662',
@@ -79,6 +85,19 @@ const styles = StyleSheet.create({
     img:{
         width:200,
         height:200,
+        borderWidth: 3,
+        borderRadius: 10,
+        borderColor: '#b2ad7f'
+    },
+    buscador:{
+        borderRadius: 5,
+        borderStyle: 'solid',
+        backgroundColor: 'white',
+        borderColor: '#7f8662',
+        borderWidth: 2,
+    },
+    avisos:{
+        color: "#f6c9ae"
     }
 })
 

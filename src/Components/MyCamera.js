@@ -60,7 +60,7 @@ onAcccept(){
 }
 
 render(){
-    if(this.state.permission === false) return <Text>No hay Permisos</Text>
+    if(this.state.permission === false) return <Text style={styles.avisos}>No hay Permisos</Text>
 
     return(
         <React.Fragment>

@@ -56,14 +56,14 @@ onPhotoUpload(url){
                 <MyCamera onPhotoUpload={(url)=> this.onPhotoUpload(url)}/>
                 :
                 <View style= {styles.container}>
-                <Text style={styles.titulo}> Publicacion </Text>
-                <Text style={styles.textoIn}> Postear </Text>
+                <Text style={styles.titulo}> Publicación </Text>
+                <Text style={styles.textoIn}> Título </Text>
                 <TextInput
                     style ={styles.input}
-                    placeholder = 'Introducir publicacion'
+                    placeholder = 'Introducir título'
                     onChangeText = { (text) => this.setState({title: text})} 
                 />
-                <Text style={styles.textoIn}> Descripción</Text>
+                <Text style={styles.textoIn}> Descripción </Text>
                 <TextInput
                  style ={styles.input}
                  placeholder = 'Introducir descripción'
