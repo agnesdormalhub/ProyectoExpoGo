@@ -34,9 +34,9 @@ export default class Home extends Component{
         db.collection('posts').where('createdAt', '==', createdAt ).get()
         .then(data => {
             data.forEach(doc => doc.ref.delete())
-            const postsFiltered = this.state.myPosts.filter(post => post.data.createdAt != createdAt)
-            console.log(this.state.myPosts)
-            this.setState({myPosts: postsFiltered});
+            const postsFiltered = this.state.posts.filter(post => post.data.createdAt != createdAt)
+            console.log(this.state.posts)
+            this.setState({posts: postsFiltered});
         })
     }
 
