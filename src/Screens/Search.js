@@ -63,7 +63,7 @@ export default class Search extends Component{
                 }
                 {
                     this.state.loading == false && this.state.posts.length == 0 && this.state.input.length > 0  ?
-                    <Text> No se encontró al usuario. </Text> :
+                    <Text style={styles.avisos}> No se encontró al usuario. </Text> :
                     null
 
                 }

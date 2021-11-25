@@ -136,13 +136,14 @@ class Post extends Component{
                         visible={this.state.showModal} 
                         animationType="slide" 
                         >
-                        <Text>
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modal}>
+                            <Text>
                             { this.state.mostrarComentarios ?
                                 <React.Fragment>
                                     <Text style={styles.textoIn}> Comentarios: </Text>
                                     <FlatList 
                                         data={this.props.info.data.comentarios}
-                                        style ={styles.flat}
                                         keyExtractor={(item)=> item.id.toString()}
                                         renderItem={({item})=> <Text>{item.owner} {item.comment}</Text>}
                                     />
@@ -166,6 +167,10 @@ class Post extends Component{
                         <TouchableOpacity style = {styles.boton} onPress = {()=> this.closeModal() }>
                             <Text style ={styles.botonText}>Ocultar comentarios</Text>
                         </TouchableOpacity>
+                                 </View>
+                        
+                             </View>
+                        
 
 
                     </Modal> :

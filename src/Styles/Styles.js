@@ -66,7 +66,30 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
         padding: 5,
         marginTop: 5,
-        borderRadius: 10
+        borderRadius: 10,
+        flex: 1,
+        marginTop: 20,
+        width: "100%",
+        alignItems: 'center',
+        
+    },
+    modalContainer: {
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center',
+    }, 
+    modal: {
+        height:'70%',
+        width:'100%',
+        justifyContent:'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        elevation:20,
+        shadowColor:'black',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor:'black',
+        backgroundColor: '#E9E3E2'
     },
     perfil:{
         color:'#7f8662',
