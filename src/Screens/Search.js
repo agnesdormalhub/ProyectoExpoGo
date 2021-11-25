@@ -20,7 +20,7 @@ export default class Search extends Component{
     }
 
     search(text){
-        db.collection('posts').where('username','==', text).get().then(docs => {
+        db.collection('posts').where('username','==', text).onSnapshot(docs => {
             let posts=[];
             docs.forEach(doc => {
                 posts.push({
@@ -63,7 +63,7 @@ export default class Search extends Component{
                 }
                 {
                     this.state.loading == false && this.state.posts.length == 0 && this.state.input.length > 0  ?
-                    <Text style={styles.avisos}> No se encontró al usuario. </Text> :
+                    <Text> No se encontró al usuario. </Text> :
                     null
 
                 }
