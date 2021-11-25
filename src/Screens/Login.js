@@ -9,6 +9,7 @@ class Login extends Component{
             email : '',
             userName: '',
             password: '',
+            error: '',
         }
     }
     registrarse(email,password){
@@ -38,9 +39,15 @@ class Login extends Component{
              />
 
                 
-                <TouchableOpacity style = {styles.boton} onPress = {()=> this.props.ingresar(this.state.email,this.state.password)}>
+                <TouchableOpacity style = {styles.boton} onPress = {()=> this.props.ingresar(this.state.email,this.state.password, this.state.error)}>
                     <Text style ={styles.botonText}>Enviar</Text>
                 </TouchableOpacity>
+                {
+                    this.props.error ? (
+                        <Text style={styles.avisos}> Error: {this.props.error}</Text>
+                    ) : null
+                    
+                }
             </View>
         )
     }

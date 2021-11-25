@@ -58,7 +58,7 @@ class Register extends Component{
                 
                 {
                     this.props.error ? (
-                        <Text> Error: {this.props.error}</Text>
+                        <Text style={styles.avisos}> Error: {this.props.error}</Text>
                     ) : null
                     
                 }
