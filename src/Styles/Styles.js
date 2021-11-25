@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     },
 
     flat:{
-        width:"100%",
+        width:"50%",
         
     },
 
