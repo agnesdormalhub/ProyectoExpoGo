@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: '#ccc',
         borderRadius: 6,
-        marginVertical:10
+        marginVertical:10,
+        padding: 5
     },
     boton: {
         backgroundColor: '#ececec',
@@ -40,7 +41,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderStyle: 'solid',
         borderColor: '#808080',
-        marginTop: 2
+        marginTop: 2,
+        padding: 5
     },
     enviar:{
         color: 'white'
@@ -97,7 +99,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
     },
     avisos:{
-        color: "#f6c9ae"
+        color: "#f6c9ae",
+        fontSize: 40
     }
 })
 

@@ -142,10 +142,12 @@ class Post extends Component{
                                     <Text style={styles.textoIn}> Comentarios: </Text>
                                     <FlatList 
                                         data={this.props.info.data.comentarios}
+                                        style ={styles.flat}
                                         keyExtractor={(item)=> item.id.toString()}
                                         renderItem={({item})=> <Text>{item.owner} {item.comment}</Text>}
                                     />
                                     <TextInput
+                                        style ={styles.input}
                                         placeholder = 'Introducir Comentarios'
                                         keyboardType= 'multiline'
                                         onChangeText = { (text) => this.setState({comentario: text})} 
