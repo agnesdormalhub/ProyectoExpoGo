@@ -158,9 +158,7 @@ class Post extends Component{
                                     </TouchableOpacity>
                                 </React.Fragment>
                             :
-                                <TouchableOpacity  onPress = {()=> this.setState({mostrarComentario: true})}>
-                                    <Text>Ver Comentarios</Text>
-                                </TouchableOpacity>
+                               null
                             }
                         </Text>
 
